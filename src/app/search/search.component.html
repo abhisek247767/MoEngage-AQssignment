@@ -1,0 +1,23 @@
+<div class="search-container">
+  <h2>Search Breweries</h2>
+  <form (ngSubmit)="search()">
+    <label for="by_city">City</label>
+    <input type="text" id="by_city" [(ngModel)]="query.by_city" name="by_city">
+
+    <label for="by_name">Name</label>
+    <input type="text" id="by_name" [(ngModel)]="query.by_name" name="by_name">
+
+    <label for="by_type">Type</label>
+    <input type="text" id="by_type" [(ngModel)]="query.by_type" name="by_type">
+
+    <button type="submit">Search</button>
+  </form>
+  <div class="brewery-list">
+    <div *ngFor="let brewery of breweries" (click)="navigateToBrewery(brewery._id)">
+      <h3>{{ brewery.name }}</h3>
+      <p>{{ brewery.street }}, {{ brewery.city }}, {{ brewery.state }}</p>
+      <p>{{ brewery.phone }}</p>
+      <a [href]="brewery.website_url" target="_blank">{{ brewery.website_url }}</a>
+    </div>
+  </div>
+</div>

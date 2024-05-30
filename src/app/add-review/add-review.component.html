@@ -1,0 +1,14 @@
+<div class="add-review-container">
+  <h2>Add a Review</h2>
+  <form (ngSubmit)="addReview()">
+    <label for="rating">Rating</label>
+    <select id="rating" [(ngModel)]="rating" name="rating">
+      <option *ngFor="let r of [1, 2, 3, 4, 5]" [value]="r">{{ r }}</option>
+    </select>
+
+    <label for="description">Description</label>
+    <textarea id="description" [(ngModel)]="description" name="description"></textarea>
+
+    <button type="submit">Add Review</button>
+  </form>
+</div>

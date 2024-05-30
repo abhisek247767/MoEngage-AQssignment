@@ -1,0 +1,16 @@
+<div class="brewery-container" *ngIf="brewery">
+  <h2>{{ brewery.name }}</h2>
+  <p>{{ brewery.street }}, {{ brewery.city }}, {{ brewery.state }}</p>
+  <p>{{ brewery.phone }}</p>
+  <a [href]="brewery.website_url" target="_blank">{{ brewery.website_url }}</a>
+
+  <h3>Reviews</h3>
+  <div class="reviews-list">
+    <div *ngFor="let review of reviews">
+      <p><strong>Rating:</strong> {{ review.rating }}</p>
+      <p>{{ review.description }}</p>
+    </div>
+  </div>
+
+  <a [routerLink]="['/add-review', brewery._id]">Add a Review</a>
+</div>
